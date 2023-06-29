@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Projekt.ViewModels.Went" x:DataType="viewmodels:CreateNewVentViewModel"
+             x:Class="Projekt.Views.Went.CreateNewVentUnit">
+    <ContentPage.Content>
+        <StackLayout Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+            <StackLayout Padding="10, 40" BackgroundColor="#282828">
+
+                <Picker Title="Wybierz model centrali wentylacyjnej" TextColor="#00daf1" TitleColor="Gray" SelectedItem="{Binding Model}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>AERIS 350 LUXE</x:String>
+                            <x:String>KNP 950 Perfect</x:String>
+                            <x:String>VEKU 1000 HE</x:String>
+                            <x:String>MISTRAL SMART 300 EC</x:String>
+                            <x:String>RK-150-SP</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Button Margin="0,40,0,0" VerticalOptions="Center" Text="Zapisz" TextColor="White" BackgroundColor="#00daf1" Command="{Binding SaveNewVentUnitCommand}"></Button>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

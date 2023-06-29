@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Projekt.ViewModels.Heat" x:DataType="viewmodels:CreateNewHeatPumpUnitViewModel"
+             x:Class="Projekt.Views.Heat.CreateNewHeatPumpUnit">
+    <ContentPage.Content>
+        <StackLayout Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+            <StackLayout Padding="10, 40" BackgroundColor="#282828">
+
+                <Picker Title="Wybierz model pompy ciepła" TextColor="#00daf1" TitleColor="Gray" SelectedItem="{Binding Model}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Hewalex PCCO SPLIT 20kW</x:String>
+                            <x:String>Buderus Logatherm WLW196i AR</x:String>
+                            <x:String>Panasonic Aquarea 9 kW AQUAREA KIT-WHF09F3E5</x:String>
+                            <x:String>Viessmann Vitocal 300-G</x:String>
+                            <x:String>Nibe F1145 PC</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Button Margin="0,40,0,0" VerticalOptions="Center" Text="Zapisz" TextColor="White" BackgroundColor="#00daf1" Command="{Binding SaveNewHeatPumpUnitCommand}"></Button>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

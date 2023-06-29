@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Projekt.ViewModels" x:DataType="viewmodels:PanelViewModel"
+             x:Class="Projekt.Views.Panel">
+    <ContentPage.Content>
+        <StackLayout Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+            <StackLayout Padding="20" BackgroundColor="#282828">
+                <Label Text="Witaj" TextColor="#c98728" HorizontalTextAlignment="Center" FontSize="20"/>
+                <Label Text="W aplikacji SmartHomeAssitant"  HorizontalTextAlignment="Center" TextColor="White" FontSize="15"/>
+            </StackLayout>
+
+            <StackLayout Padding="20" BackgroundColor="#282828">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0">
+                        <Label Text="Średnia temperatura (C)" TextColor="Azure" HorizontalOptions="Center"/>
+                        <Label Text="{Binding TemperatureDeg}" TextColor="#c98728" HorizontalOptions="Center"  FontSize="25"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Średnia wilgotność (%)" TextColor="Azure" HorizontalOptions="Center" />
+                        <Label Text="{Binding Humidity}" TextColor="#0ec400" HorizontalOptions="Center"  FontSize="25"/>
+                    </StackLayout>
+
+                </Grid>
+                
+            </StackLayout>
+
+            <StackLayout>
+                <Grid Margin="0,0,0,0" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="*" />
+                  
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="https://pixelogic.pl/img/temperatura.png" Grid.Row="0" Grid.Column="0" Aspect="AspectFit" />
+                    <Button Text="Temperatura" Grid.Row="0" Grid.Column="1" TextColor="White" BackgroundColor="#00daf1"  Command="{Binding GotoTeperatureModuleCommand}"/>
+
+                    <Image Source="https://pixelogic.pl/img/wentylacja.png" Grid.Row="1" Grid.Column="0" Aspect="AspectFit" />
+                    <Button Text="Wentylacja" Grid.Row="1" Grid.Column="1" TextColor="White" BackgroundColor="#00daf1" Command="{Binding GotoWentModuleCommand}"/>
+
+                    <Image Source="https://pixelogic.pl/img/heat.png" Grid.Row="2" Grid.Column="0" Aspect="AspectFit" />
+                    <Button Text="C.O i C.W.U" Grid.Row="2" Grid.Column="1" TextColor="White" BackgroundColor="#00daf1" Command="{Binding GotoHeatModuleCommand}"/>
+
+                    <Image Source="https://pixelogic.pl/img/rolety.png" Grid.Row="3" Grid.Column="0" Aspect="AspectFit" />
+                    <Button Text="Rolety i żaluzje" Grid.Row="3" Grid.Column="1" TextColor="White" BackgroundColor="#00daf1" Command="{Binding GotoBlindsModuleCommand}" />
+
+                    <Image Source="https://pixelogic.pl/img/logs.png" Grid.Row="5" Grid.Column="0" Aspect="AspectFit" />
+                    <Button Text="Logi" Grid.Row="5" Grid.Column="1" TextColor="White" BackgroundColor="#c98728" Command="{Binding GotoLogsModuleCommand}"/>
+
+                    
+
+
+                </Grid>
+            </StackLayout>
+
+            <Label Margin="0,50,0,0" Text="Projekt i realizacja" TextColor="White" HorizontalTextAlignment="Center" FontSize="10"/>
+            <Label Text="Kamil Ślusar" TextColor="#c98728" HorizontalTextAlignment="Center" FontSize="10"/>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

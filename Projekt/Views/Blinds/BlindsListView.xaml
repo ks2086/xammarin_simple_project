@@ -1,0 +1,66 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Projekt.ViewModels.Blinds"
+             xmlns:local="clr-namespace:Projekt.Services"
+             x:Class="Projekt.Views.Blinds.BlindsListView">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:BooleanToStringConverter x:Key="BooleanToStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+            <Grid Margin="0,0,0,0" Padding="10" BackgroundColor="#282828">
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="*" />
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+
+                <Image Source="https://pixelogic.pl/img/rolety.png" Grid.Row="0" Grid.Column="0" Aspect="AspectFit" />
+                <Label Text="Lista rolet / żaluzji" TextColor="White" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="15"  Grid.Row="0" Grid.Column="1"/>
+                <Button Text="Dodaj" Grid.Row="0" Grid.Column="2" TextColor="White" BackgroundColor="#00daf1" Command="{Binding NavigateToAddNewBlindsUnitFormCommand}"/>
+            </Grid>
+
+            <ListView x:Name="BlindUnitsList" SeparatorColor="#282828" ItemTapped="LisViewItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <StackLayout Orientation="Horizontal" Padding="5">
+
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="250" />
+                                        <ColumnDefinition Width="*" />
+                                        
+                                       
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Description}" Grid.Column="0" TextColor="#00daf1" FontSize="15" VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding IsClosed, Converter={StaticResource BooleanToStringConverter}, ConverterParameter='Podniesiona,Opuszczona'}" Grid.Column="1" TextColor="#c98728" FontSize="15" VerticalTextAlignment="Center" />
+                                    
+
+                                </Grid>
+
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

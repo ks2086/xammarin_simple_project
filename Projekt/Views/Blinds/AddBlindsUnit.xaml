@@ -1,0 +1,29 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Projekt.ViewModels.Blinds" x:DataType="viewmodels:AddBlindsUnitViewModel"
+             x:Class="Projekt.Views.Blinds.AddBlindsUnit">
+
+    <ContentPage.Content>
+        <StackLayout Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+
+            <StackLayout Padding="10, 40" BackgroundColor="#282828">
+
+                <Entry Placeholder="Podaj opis (np.: Okno w salonie)" TextColor="#00daf1" PlaceholderColor="Gray" Keyboard="Text" x:Name="Description" Text="{Binding Description}"></Entry>
+                <Picker Title="Wybierz aktualną pozycję" TextColor="#00daf1" TitleColor="Gray" SelectedItem="{Binding IsClosedStr}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Opuszczona</x:String>
+                            <x:String>Podniesiona</x:String>
+                            
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Button Margin="0,40,0,0" VerticalOptions="Center" Text="Zapisz" TextColor="White" BackgroundColor="#00daf1" Command="{Binding SaveNewBlindsUnitCommand}"></Button>
+
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

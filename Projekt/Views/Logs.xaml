@@ -1,0 +1,59 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Projekt.Services"
+             x:Class="Projekt.Views.Went.Logs">
+
+    <ContentPage.Content>
+        <StackLayout Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+            <Grid Margin="0,0,0,0" Padding="10" BackgroundColor="#282828">
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="*" />
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="*" />
+               
+                </Grid.ColumnDefinitions>
+
+                <Image Source="https://pixelogic.pl/img/logs.png" Grid.Row="0" Grid.Column="0" Aspect="AspectFit" />
+                <Label Text="Lista logów systemowych" TextColor="White" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="15"  Grid.Row="0" Grid.Column="1"/>
+                
+            </Grid>
+
+            <ListView x:Name="LogsList" SeparatorColor="#282828">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <StackLayout Orientation="Horizontal" Padding="5">
+
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Created_at}" Grid.Column="0" TextColor="#fff" FontSize="12" VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding Module}" Grid.Column="1" TextColor="#c98728" FontSize="12" VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding LogStatusId }" Grid.Column="2" TextColor="#ffffff" FontSize="12" VerticalTextAlignment="Center" />
+
+                                </Grid>
+
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

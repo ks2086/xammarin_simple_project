@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Projekt.ViewModels.TemperatureVM" x:DataType="viewmodels:TempratureAddNewUnitViewModel"
+             x:Class="Projekt.Views.Temperature.AddTemperatureUnit">
+    <ContentPage.Content>
+        <StackLayout Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+            <StackLayout Padding="10, 40" BackgroundColor="#282828">
+
+                <Entry Placeholder="Podaj opis (np.: Termometr w salonie)" TextColor="#00daf1" PlaceholderColor="Gray" Keyboard="Text" Text="{Binding Description}" x:Name="Description"></Entry>
+                <Picker Title="Wybierz model czujnika" TextColor="#00daf1" TitleColor="Gray" SelectedItem="{Binding Model}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Aqara Temperature Humidity Sensor</x:String>
+                            <x:String>Czujnik temperatury i wilgotności WIFI TUYA z ekranem LCD</x:String>
+                            <x:String>Czujnik temperatury i wilgotności ZIGBEE TUYA MINI</x:String>
+                            <x:String>Temperature Sensor FIBARO</x:String>
+                            <x:String>Czujnik sensor temperatury Sonoff DS18B20</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Button Margin="0,40,0,0" VerticalOptions="Center" Text="Zapisz" TextColor="White" BackgroundColor="#00daf1" Command="{Binding SaveNewTemperatureUnitCommand}"></Button>
+
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

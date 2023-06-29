@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Projekt.ViewModels.Heat" x:DataType="viewmodels:ManageHeatPumpUnitViewModel"
+             x:Class="Projekt.Views.Heat.ManageHeatPumpUnit">
+    <ContentPage.Content>
+        <StackLayout Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+            <StackLayout Padding="10, 40" BackgroundColor="#282828">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="https://pixelogic.pl/img/hp.png" Aspect="AspectFit" Grid.Column="0" Grid.Row="0" />
+                    <StackLayout Grid.Column="1" Grid.Row="0" Margin="10,0,0,0">
+                        <Label Text="Pompa ciepła" FontSize="12" TextColor="#ffffff" />
+                        <Label Text="{Binding Model}" FontSize="20" TextColor="#0ec400" />
+                        
+                    </StackLayout>
+                </Grid>
+
+            </StackLayout>
+
+            <StackLayout Padding="10, 10" BackgroundColor="#282828">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                       
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0">
+                        <Label Text="Max moc sprężarki (kW)" FontSize="12" TextColor="#ffffff" HorizontalOptions="Center"/>
+                        <Label Text="{Binding CompressorPower}" FontSize="15" TextColor="#0ec400" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Max moc grzałki (kW)" FontSize="12" TextColor="#ffffff" HorizontalOptions="Center"/>
+                        <Label Text="{Binding HeaterPower}" FontSize="15" TextColor="#0ec400" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                   
+
+                </Grid>
+
+            </StackLayout>
+
+            <StackLayout Padding="10, 10" BackgroundColor="#282828">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0">
+                        <Label Text="Akt. temp. wody C.O" FontSize="12" TextColor="#ffffff" HorizontalOptions="Center"/>
+                        <Label Text="{Binding CurrentCoWaterTemperature}" FontSize="15" TextColor="#0ec400" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Akt. temp. wody C.W.U" FontSize="12" TextColor="#ffffff" HorizontalOptions="Center"/>
+                        <Label Text="{Binding CurrentCwuWaterTemperature}" FontSize="15" TextColor="#0ec400" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="2">
+                        <Label Text="Akt. pobór prądu (kWh)" FontSize="12" TextColor="#ffffff" HorizontalOptions="Center"/>
+                        <Label Text="{Binding CurrenPowerConsumption}" FontSize="15" TextColor="#0ec400" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                </Grid>
+                
+            </StackLayout>
+
+            <StackLayout Padding="10, 10" BackgroundColor="#282828">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button VerticalOptions="Center" Text="Zmniejsz" Grid.Column="0" TextColor="White" BackgroundColor="#121212" Command="{Binding DecCoWaterTempCommand}"></Button>
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Temp, wody C.O (C)" FontSize="12" TextColor="#ffffff" HorizontalOptions="Center"/>
+                        <Label Text="{Binding COHeatingTemperature}" FontSize="15" TextColor="#0ec400" HorizontalOptions="Center" />
+                    </StackLayout>
+                    <Button VerticalOptions="Center" Text="Zwiększ" Grid.Column="2" TextColor="White" BackgroundColor="#121212" Command="{Binding IncCoWaterTempCommand}"></Button>
+
+                </Grid>
+
+            </StackLayout>
+
+            <StackLayout Padding="10, 10" BackgroundColor="#282828">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button VerticalOptions="Center" Text="Zmniejsz" Grid.Column="0" TextColor="White" BackgroundColor="#121212" Command="{Binding DecCwuWaterTempCommand}"></Button>
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Temp. wody C.W.U (C)" FontSize="12" TextColor="#ffffff" HorizontalOptions="Center"/>
+                        <Label Text="{Binding CWUHeatingTemperature}" FontSize="15" TextColor="#0ec400" HorizontalOptions="Center" />
+                    </StackLayout>
+                    <Button VerticalOptions="Center" Text="Zwiększ" Grid.Column="2" TextColor="White" BackgroundColor="#121212" Command="{Binding IncCwuWaterTempCommand}"></Button>
+
+                </Grid>
+
+            </StackLayout>
+
+            <StackLayout Margin="0, 40" Padding="10, 10" BackgroundColor="#282828">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+
+                    </Grid.ColumnDefinitions>
+
+                    <Button VerticalOptions="Center" Text="Usuń pompę ciepła" Grid.Column="0" TextColor="White" BackgroundColor="#c40000" Command="{Binding RemoveHeatPumpUnitCommand}"></Button>
+
+                </Grid>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

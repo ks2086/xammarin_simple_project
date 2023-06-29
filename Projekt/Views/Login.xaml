@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Projekt.ViewModels" x:DataType="viewmodels:LoginViewModel"
+             x:Class="Projekt.Views.Login">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+
+            <Image Margin="0,0,0,80" Source="https://pixelogic.pl/img/logo.jpg" Aspect="AspectFit" />
+
+            <Entry Placeholder="Podaj adres e-mail" TextColor="#00daf1" PlaceholderColor="Gray" Keyboard="Email" Text="{Binding Email}" x:Name="Email"></Entry>
+            <Entry Placeholder="Podaj hasło" IsPassword="True" TextColor="#00daf1" PlaceholderColor="Gray" Text="{Binding Password}" x:Name="Password"></Entry>
+            <Button Margin="0,40,0,0" VerticalOptions="Center" Text="Zaloguj się" TextColor="White" BackgroundColor="#00daf1" BorderWidth="1.5" CornerRadius="10" Command="{Binding LoginFormSubmitCommand}"></Button>
+            <Button VerticalOptions="Center" Text="Utwórz konto" TextColor="White" BackgroundColor="Transparent" Command="{Binding RegisterFormNavigateCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

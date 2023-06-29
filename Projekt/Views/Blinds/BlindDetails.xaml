@@ -1,0 +1,48 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Projekt.ViewModels.Blinds" x:DataType="viewmodels:BlindDetailsViewModel"
+             xmlns:local="clr-namespace:Projekt.Services"
+             x:Class="Projekt.Views.Blinds.BlindDetails">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:BooleanToStringConverter x:Key="BooleanToStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+            <StackLayout Padding="10, 40" BackgroundColor="#282828">
+
+                <Entry Placeholder="Podaj opis (np.: Okno w salonie)" TextColor="#00daf1" PlaceholderColor="Gray" Keyboard="Text" x:Name="Description" Text="{Binding Description}"></Entry>
+                <Button Margin="0,0,0,0" VerticalOptions="Center" Text="Aktualizuj" TextColor="White" BackgroundColor="#00daf1" Command="{Binding UpdateBlindUnitCommand}"></Button>
+
+            </StackLayout>
+
+            <StackLayout Padding="10, 40" BackgroundColor="#282828">
+                <Label Text="Postęp wykonania operacji: " TextColor="#fff" HorizontalOptions="Center" FontSize="16" />
+                <Label Text="{Binding LevelPercentage}" TextColor="#c98728" HorizontalOptions="Center" FontSize="27" />
+            </StackLayout>
+
+            <StackLayout Padding="10, 40" BackgroundColor="#282828">
+                <Button 
+                    VerticalOptions="Center" 
+                    Text="{Binding IsClosed, Converter={StaticResource BooleanToStringConverter}, ConverterParameter='Opuść roletę,Podnieś roletę'}" 
+                    TextColor="White" BackgroundColor="#c98728" Command="{Binding OpenCloseBlindUnitCommand}"></Button>
+            </StackLayout>
+            
+            <StackLayout Padding="10, 40" BackgroundColor="#282828">
+                <Button 
+                    VerticalOptions="Center" 
+                    Text="Usuń roletę" 
+                    TextColor="White" BackgroundColor="#c40000" Command="{Binding DeleteBlindUnitCommand}"></Button>
+            </StackLayout>
+
+
+        </StackLayout>
+
+    </ContentPage.Content>
+    
+    
+</ContentPage>
